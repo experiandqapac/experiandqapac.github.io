@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Experian Data Quality for Microsoft Dynamics CRM</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -91,7 +91,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,9 +101,7 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="json">json</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -112,7 +110,8 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='mailto:sauheungryan.yong@experian.com?Subject=Request%20for%20MSCRM%20token'>Sign Up for a Developer Key</a></li>
+            <li><a href='mailto:sauheungryan.yong@experian.com?Subject=Request%20for%20MSCRM%20deployment'>Get help on integration</a></li>
             <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -121,149 +120,76 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to Experian Data Quality for Microsoft Dynamics CRM documentation page! You can use our API to verify addresses, phone numbers and emails. Contact us</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id="deploy">Deploy</h1>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<aside class="notice">This section explains steps required to deploy the solution.</aside>
 
-<h1 id="authentication">Authentication</h1>
+<h1 id="configuration">Configuration</h1>
 
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<aside class="notice">This section explains configuration that can be made to customize the integration.</aside>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-<h1 id="kittens">Kittens</h1>
-
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves all kittens.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
+<p>There&rsquo;s basically 3 main parts that can be configured for each deployment - services, data and touchpoints.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="nt">"debug"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"targetPlatform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSCRM2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"touchpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves a specific kitten.</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>debug</td>
+<td>Flag indicating whether to log messages to the console of browser.</td>
+</tr>
+<tr>
+<td>targetPlatform</td>
+<td>The current supported platform is either MSCRM2016 or MSCRM2015.</td>
+</tr>
+<tr>
+<td>services</td>
+<td>Refer to <a href="#services">service</a> section.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Refer to <a href="#data">data</a> section.</td>
+</tr>
+<tr>
+<td>touchpoints</td>
+<td>Refer to <a href="#touchpoint-for-address-validate">Address</a>, <a href="#touchpoint-for-email-validate">Email</a>, <a href="#touchpoint-for-phone-validate">Phone</a> sections.</td>
+</tr>
+</tbody></table>
 
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<h2 id="services">Services</h2>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
+<aside class="notice">This configures the REST APIs URL and credentials for all address, email and phone validation.</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADDRESS_SEARCH_REST_URL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADDRESS_SEARCH_REST_TOKEN"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PHONE_SEARCH_REST_URL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PHONE_SEARCH_REST_TOKEN"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL_SEARCH_REST_URL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL_SEARCH_REST_TOKEN"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"touchpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -272,8 +198,248 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>ADDRESS_SEARCH_REST_URL</td>
+<td>URL to the Capture API REST API.</td>
+</tr>
+<tr>
+<td>ADDRESS_SEARCH_REST_TOKEN</td>
+<td>Token for Capture API REST API (usually in the form of GUID).</td>
+</tr>
+<tr>
+<td>PHONE_SEARCH_REST_URL</td>
+<td>URL to the Capture API REST API.</td>
+</tr>
+<tr>
+<td>PHONE_SEARCH_REST_TOKEN</td>
+<td>Token for Capture API REST API (usually in the form of GUID).</td>
+</tr>
+<tr>
+<td>EMAIL_SEARCH_REST_URL</td>
+<td>URL to the Capture API REST API.</td>
+</tr>
+<tr>
+<td>EMAIL_SEARCH_REST_TOKEN</td>
+<td>Token for Capture API REST API (usually in the form of GUID).</td>
+</tr>
+</tbody></table>
+
+<h2 id="data">Data</h2>
+
+<aside class="notice">This configures the Data or Country datasets available for address, phone or email validation.</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"AUS"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"twoLetterCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"au"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intuitive"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"layout"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSDCRM2011"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"placeholderText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Search address here..."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"AUG"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"twoLetterCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"au"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intuitive"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"layout"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSDCRM2011"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"placeholderText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Search address here..."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"touchpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fullName</td>
+<td>Name to be displayed in the country selector during address search.</td>
+</tr>
+<tr>
+<td>twoLetterCode</td>
+<td>Official two letter code of the country to be used in formatting phone numbers.</td>
+</tr>
+<tr>
+<td>engine</td>
+<td>Intuitive or Singleline.</td>
+</tr>
+<tr>
+<td>layout</td>
+<td>Layout of the search - if unsure MSCRM2011 can be used as default.</td>
+</tr>
+<tr>
+<td>placeholderText</td>
+<td>Text to be displayed before any search value is entered in text box.</td>
+</tr>
+</tbody></table>
+
+<h2 id="touchpoint-for-address-validate">Touchpoint for Address Validate</h2>
+
+<aside class="notice">This configures specific search UI address, email or phone validations.</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"touchpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WebResource_edq_vsm_addresscapture1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"addressStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new_edq_vs_addresscapture1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"addressTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new_edq_vt_addresscapture1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mappings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"address1_line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address1_line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street 2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address1_line3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street 3"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address1_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address1_stateorprovince"</span><span class="p">:</span><span class="w"> </span><span class="s2">"state/Province"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address1_postalcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ziP/Postal Code"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address1_country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"countryMappings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AUG"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AUS"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"NZD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Zealand"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"showCountry"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"defaultCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Name of the touchpoint to be created needs to be unique. The prefix &ldquo;WebResource_edq_vsm_&rdquo; is important for Phone and Email validate - because the remaining text &lsquo;addresscapture1&rsquo; is treated as the field name to be hooked with email validation.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Touchpoint type.</td>
+</tr>
+<tr>
+<td>addressStatus</td>
+<td>Status field populated with Verified, Unverified or User Preferred automatically when search is completed.</td>
+</tr>
+<tr>
+<td>addressTime</td>
+<td>Time field populated with validation time when search is completed.</td>
+</tr>
+<tr>
+<td>mappings</td>
+<td>Mapping of field (MSCRM specific names) to layout returned.</td>
+</tr>
+<tr>
+<td>countryMappings</td>
+<td>Values to be populated to the country field based on country selected in UI.</td>
+</tr>
+<tr>
+<td>showCountry</td>
+<td>Show or hides the country selector (recommended to hide the country if only one country is expected all the time).</td>
+</tr>
+<tr>
+<td>defaultCountry</td>
+<td>Default country to be used in address search - must be valid country in data configuration.</td>
+</tr>
+</tbody></table>
+
+<h2 id="touchpoint-for-email-validate">Touchpoint for Email Validate</h2>
+
+<aside class="notice">This configures specific search UI address, email or phone validations.</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"touchpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emailaddress1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"verifiedLevels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Disposable"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Verified"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Name of the touchpoint, also the name of the MSCRM field to be setup for validation.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Touchpoint type.</td>
+</tr>
+<tr>
+<td>verifiedLevels</td>
+<td>Levels returned from REST API that is considered verified. Leave this as default if unsure.</td>
+</tr>
+</tbody></table>
+
+<h2 id="touchpoint-for-address-validate">Touchpoint for Address Validate</h2>
+
+<aside class="notice">This configures specific search UI address, email or phone validations.</aside>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"touchpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"managerphone"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"countries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"AU"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"NZ"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"defaultCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"verifiedLevels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Unreachable"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Absent"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Verified"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Name of the touchpoint, also the name of the MSCRM field to be setup for validation.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Touchpoint type.</td>
+</tr>
+<tr>
+<td>countries</td>
+<td>Countries allowed in the phone field.</td>
+</tr>
+<tr>
+<td>defaultCountry</td>
+<td>Default country format used e.g When set to AU, 414535222 will be formatted to +61414535222 before being sent for validation.</td>
+</tr>
+<tr>
+<td>verifiedLevels</td>
+<td>Levels returned from REST API that is considered verified. Leave this as default if unsure.</td>
 </tr>
 </tbody></table>
 
@@ -338,9 +504,7 @@ Remember — a happy kitten is an authenticated kitten!
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="json">json</a>
           </div>
       </div>
     </div>
