@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Real Time Address - sample code</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1" />
+		<link rel="stylesheet" type="text/css" href="../dist/css/styles.min.css">
+		<link rel="shortcut icon" href="../dist/images/favicon.ico">
+	</head>
+	<body>
+		<div class="filter-primary overlay-dotted">
+			<h1>Real Time Address</h1>
+		</div>
+
+		<form class="example1 dual-form">
+			<div class="loader loader-overlay hidden">
+            	<div class="spinner"></div>
+        	</div>
+
+			<label for="country" class="toggle">Country</label>
+			<select name="country" class="toggle">
+				<option value="">Please select</option>
+				<option value="aus">Australia</option>
+				<option value="fra">France</option>
+				<option value="nzl">New Zealand</option>
+				<option value="gbr" selected>United Kingdom</option>
+				<option value="usa">United States</option>
+			</select>
+
+			<label for="input" class="toggle">Address</label>
+			<input type="text" name="address-input" class="toggle">
+		</form>
+
+		<form class="example2 dual-form">
+			<div class="loader loader-overlay hidden">
+            	<div class="spinner"></div>
+        	</div>
+
+			<label for="country" class="toggle">Country</label>
+			<select name="country" class="toggle">
+				<option value="">Please select</option>
+				<option value="aus">Australia</option>
+				<option value="fra">France</option>
+				<option value="nzl">New Zealand</option>
+				<option value="gbr" selected>United Kingdom</option>
+				<option value="usa">United States</option>
+			</select>
+
+			<label for="input" class="toggle">Address</label>
+			<input type="text" name="address-input" class="toggle">
+		</form>
+
+		<script src="../dist/js/contact-data-services.min.js"></script>
+		<script>
+			// Address form 1
+			var options1 = {
+				elements: {
+					input: document.querySelector(".example1 input[name='address-input']"),
+					countryList: document.querySelector(".example1 select")
+				},
+				placeholderText: "Start typing...",
+				formattedAddress: {
+					headingText: "Shipping address",
+					headingType: "h3"
+				}
+			};
+			var address1 = new ContactDataServices.address(options1);
+
+			// Address form 2
+			var options2 = {
+				elements: {
+					input: document.querySelector(".example2 input[name='address-input']"),
+					countryList: document.querySelector(".example2 select")
+				},
+				formattedAddress: {
+					headingText: "Billing address",
+					headingType: "h3"
+				}
+			};
+			var address2 = new ContactDataServices.address(options2);
+
+			// Set up the event listeners
+			var numberOfForms = 2;
+			for(var i = 1; i <= numberOfForms; i++){
+				// Show the spinner while we're searching for the formatted address
+				window["address" + i].events.on("pre-formatting-search", (function(idx){
+					return function(){
+						document.querySelector(".example" + idx + " .loader").classList.remove("hidden");
+					}
+				})(i));
+
+				// Hide the country and search input when a result is found
+				window["address" + i].events.on("post-formatting-search", (function(idx){
+					return function(){
+						var searchInputs = document.querySelectorAll(".example" + idx + " .toggle");
+						for (var j = 0; j < searchInputs.length; ++j) {
+		  					searchInputs[j].classList.add("hidden");
+						}
+
+						// Hide the spinner
+						document.querySelector(".example" + idx + " .loader").classList.add("hidden");
+					}
+				})(i));
+			}
+		</script>
+	</body>
+</html>
